@@ -23,4 +23,4 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![image](https://github.com/aveandrian/ping-coming-soon-page-master/assets/13519212/9ebf89f2-854b-4eb6-9607-091058585ec8)
