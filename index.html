@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="index.css" >
+
+  <script src="https://kit.fontawesome.com/64212063ae.js" crossorigin="anonymous"></script>
+  
+  <title>Frontend Mentor | Ping coming soon page</title>
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="./images/logo.svg" class="logo">
+    <h1 class="title"><span class="title-slim">We are launching </span>soon!</h1>
+    <h2 class="descr">Subscribe and get notified</h2>
+    <form name="signUpForm">
+      <div class="input-container">
+        <input type="text" name="email" placeholder="Your email address..." class="email-input">
+        <p class="error error-email"></p>
+      </div>
+      <button type="submit" class="btn">Notify Me</button>
+    </form>
+    <img src="./images/illustration-dashboard.png" alt="Illustration dashboard" class="main-img">
+    <div class="socials">
+      <div class="icon-container"><i class="fa-brands fa-facebook-f" ></i></div>
+      <div class="icon-container"><i class="fa-brands fa-twitter" ></i></div>
+      <div class="icon-container"><i class="fa-brands fa-instagram"></i></div>
+    </div>
+    <p class="copyright">&copy; Copyright Ping. All rights reserved.</p> 
+  </main>
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/aveandrian">aveandrian</a>.
+    </p>
+  </footer>
+  <script>
+    function resetError(){
+      document.querySelector('.error-email').style.display = 'none';
+      document.querySelector('.email-input').style.border = "solid 1px hsl(0, 0%, 59%)";
+    }
+    document.forms['signUpForm'].onsubmit = function(event){
+      resetError()
+      let isValid = true;
+      const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+      if(this.email.value.trim() == ""){
+        document.querySelector('.email-input').style.border = "solid 1px red";
+        document.querySelector('.error-email').innerHTML = "Whoops! It looks like you forgot to add your email";
+        document.querySelector('.error-email').style.display = 'block';
+        isValid = false
+      } else if (!this.email.value.match(regex)) {
+        document.querySelector('.error-email').innerHTML = "Please provide a valid email address";
+        document.querySelector('.error-email').style.display = 'block';
+        isValid = false
+      }
+
+      if(!isValid){
+        event.preventDefault();
+        return false
+      }
+    }
+  </script>
+</body>
+</html>
